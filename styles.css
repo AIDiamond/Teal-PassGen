@@ -128,7 +128,7 @@ button:active {
     text-align: left;
     border-radius: 10px;
     transition: opacity 0.4s;
-    height: 10rem;
+    height: 30rem;
     overflow-y: auto;
 }
 
