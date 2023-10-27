@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Custom Password Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="../../images/key-favicon32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../../images/key-favicon16x16.png" sizes="16x16" />
+  </head>
+  <body>
+    <button id="dark-mode-button" onclick="toggleDarkMode()">🌓</button>
+    <br>
+    <h1> Custom Password Generator</h1>
+    <label for="numPasswords">Number of passwords to generate:</label>
+    <input type="number" id="numPasswords" name="numPasswords" value="1" min="1">
+    <button id="generateButton" onclick="generateNewPasswords()">Generate Passwords</button>
+    <button onclick="copyPasswords()">Copy Passwords</button>
+    <div class="main-flexbox">
+      <!--Options menu-->
+      <div id="settings-popup" class="settings-popup show">
+        <button id="add-pool-button" onclick="addCharacterPool()">Add Pool</button>
+        <div class="pool-row">
+          <label class="labels" for="pool1">Pool 1:</label>
+          <input class="settings" type="text" name="pool1" id="pool1" value="abcdefghijklmnopqrstuvwxyz">
+          <input class="settings" type="number" name="num1" id="num1" value="4" min="0">
+        </div>
+        <div class="pool-row">
+          <label class="labels" for="pool2">Pool 2:</label>
+          <input class="settings" type="text" name="pool2" id="pool2" value="0123456789">
+          <input class="settings" type="number" name="num2" id="num2" value="4" min="0">
+        </div>
+        <div class="pool-row">
+          <label class="labels" for="pool3">Pool 3:</label>
+          <input class="settings" type="text" name="pool3" id="pool3" value="!@#$%^&*()">
+          <input class="settings" type="number" name="num3" id="num3" value="2" min="0">
+        </div>
+      </div>
+      <ul id="passwordList" style="list-style-type: none;"></ul>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
