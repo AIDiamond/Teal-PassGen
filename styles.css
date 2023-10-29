@@ -59,20 +59,11 @@ button {
 
 button:hover {
     background-color: aquamarine;
-    scale: 1.01;
+    padding: 12px 20px;
 }
 
 button:active {
-    scale: 0.99;
-}
-
-.button-container {
-    margin-bottom: 20px;
-}
-
-.password-container {
-    display: block;
-    font-weight: bold;
+    padding: 8px 20px;
 }
 
 .dark-mode {
@@ -131,15 +122,26 @@ button:active {
 }
 
 .settings-popup label {
-    padding: 2px 2px;
+    padding: 2px;
     color: white;
+}
+
+.settings-popup button {
+    margin-bottom: 1rem;
+    transition: scale 0s;
+}
+
+.settings-popup button:hover {
+    padding: 10px 20px;
+    scale: 1.01;
+}
+
+.settings-popup button:active {
+    padding: 10px 20px;
+    scale: 0.99;
 }
 
 .show {
     visibility: visible;
     opacity: 1;
-}
-
-#add-pool-button {
-    margin-bottom: 1rem;
 }
