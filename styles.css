@@ -9,6 +9,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+label {
+    font-weight: bold;
+}
+
 input[type="number"] {
     width: 8%;
     padding: 6px;
@@ -43,22 +47,22 @@ input[type="text"]:focus {
 }
 
 button {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: aqua;
+    color: black;
     border: none;
     padding: 10px 20px;
     margin: 5;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.1s, scale 0.1s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: aquamarine;
+    scale: 1.01;
 }
 
 button:active {
-    background-color: #0050a7;
     scale: 0.99;
 }
 
@@ -87,29 +91,18 @@ button:active {
     float: right;
     background-color: rgba(255, 255, 255, 0);
     font-size: 40px;
-    padding: 0px 0px;
+    padding: 0px;
     margin: 0;
     border-radius: 100px;
+    transition: scale 0.1s;
+}
+
+#dark-mode-button:hover {
+    scale: 1.01;
 }
 
 #dark-mode-button:active {
-    scale: 1.01;
-}
-
-#settings-button {
-    float: left;
-    background-color: #007BFF;
-    transition: scale 0.2s, background-color 0.5s;
-}
-
-#settings-button:hover {
-    background-color: #0056b3;
-    scale: 1.01;
-}
-
-#settings-button:active {
-    background-color: #0050a7;
-    scale: .99;
+    scale: 0.99;
 }
 
 .main-flexbox {
@@ -121,9 +114,9 @@ button:active {
     flex-direction: column;
     visibility: hidden;
     opacity: 0;
-    background-color: #007BFF;
+    background-color: blue;
     color: white;
-    padding: 10px 10px;
+    padding: 1rem;
     width: 30%;
     text-align: left;
     border-radius: 10px;
@@ -148,14 +141,5 @@ button:active {
 }
 
 #add-pool-button {
-    background-color: #00a0fd;
-    margin-bottom: 0.5rem;
-}
-
-#add-pool-button:hover {
-    background-color: #0056b3;
-}
-
-#add-pool-button:active {
-    background-color: #0050a7;
+    margin-bottom: 1rem;
 }
