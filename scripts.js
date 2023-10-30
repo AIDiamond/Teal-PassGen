@@ -19,11 +19,12 @@ function generatePassword() {
 }
 
 function addCharacterPool() {
-  const settingsPopup = document.getElementById("settings-popup");
+  const settingsPopup = document.getElementById('settings-popup');
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
 
   const poolRow = document.createElement('div');
   poolRow.classList.add('pool-row');
+  poolRow.id = "pool-row" + poolCount;
   poolRow.innerHTML = `
     <label for="pool${poolCount}">Pool ${poolCount}:</label>
     <input type="text" id="pool${poolCount}">
@@ -31,6 +32,18 @@ function addCharacterPool() {
   `;
 
   settingsPopup.appendChild(poolRow);
+}
+
+function removeCharacterPool() {
+  const settingsPopup = document.getElementById('settings-popup');
+  const poolCount = settingsPopup.querySelectorAll('.pool-row').length;
+  const lastPool = "pool-row" + poolCount;
+  const removePool = document.getElementById(lastPool);
+
+  if (poolCount > 3) {
+    settingsPopup.removeChild(removePool);
+  }
+  else {}
 }
 
 function generateNewPasswords() {
