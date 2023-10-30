@@ -17,7 +17,10 @@
     <div class="main-flexbox">
       <!--Options menu-->
       <div id="settings-popup" class="settings-popup show">
-        <button id="add-pool-button" onclick="addCharacterPool()">Add Pool</button>
+        <div class="option-buttons">
+          <button id="add-pool-button" onclick="addCharacterPool()">Pool+</button>
+          <button id="remove-pool-button" onclick="removeCharacterPool()">Pool-</button>
+        </div>
         <div class="pool-row">
           <label class="labels" for="pool1">Pool 1:</label>
           <input class="settings" type="text" name="pool1" id="pool1" value="abcdefghijklmnopqrstuvwxyz">
