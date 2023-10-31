@@ -111,6 +111,13 @@ function showSettings() {
   }
 }
 
+function showPresetOptions() {
+  const presetsPopups = document.getElementsByClassName("presets-popup");
+  for (const presetsPopup of presetsPopups) {
+    presetsPopup.classList.toggle("show");
+  }
+}
+
 const enterButton = document.getElementById("generateButton");
 function handleEnterKeyPress(event) {
     if (event.key === "Enter") {

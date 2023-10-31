@@ -20,6 +20,7 @@
         <div class="option-buttons">
           <button id="add-pool-button" onclick="addCharacterPool()">Pool+</button>
           <button id="remove-pool-button" onclick="removeCharacterPool()">Pool-</button>
+          <button id="presets-button" onclick="showPresetOptions()">Presets</button>
         </div>
         <div class="pool-row">
           <label class="labels" for="pool1">Pool 1:</label>
@@ -35,6 +36,12 @@
           <label class="labels" for="pool3">Pool 3:</label>
           <input class="settings" type="text" name="pool3" id="pool3" value="!@#$%^&*()">
           <input class="settings" type="number" name="num3" id="num3" value="2" min="0">
+        </div>
+      </div>
+      <div id="presets-popup" class="presets-popup">
+        <div class="option-buttons">
+          <button>Presets</button>
+          <button>Prefills</button>
         </div>
       </div>
       <ul id="passwordList" style="list-style-type: none;"></ul>

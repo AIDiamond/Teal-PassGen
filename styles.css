@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.4s, color 0.4s;
 }
 
 h1 {
@@ -66,15 +66,9 @@ button:active {
 }
 
 .dark-mode {
-    transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.4s, color 0.4s;
     background-color: black;
     color: white;
-}
-
-.light-mode {
-    transition: background-color 0.5s, color 0.5s;
-    background-color: white;
-    color: black;
 }
 
 #dark-mode-button {
@@ -109,9 +103,10 @@ button:active {
     width: 20rem;
     text-align: left;
     border-radius: 10px;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s, visibility 0.4s;
     height: 30rem;
     overflow-y: auto;
+    margin-right: 1rem;
 }
 
 .settings-popup input[type="number"] {
@@ -125,21 +120,44 @@ button:active {
 }
 
 .settings-popup button {
+    width: 6.4rem;
+    margin-bottom: 1rem;
+}
+
+.presets-popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    text-align: left;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 30rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
+.presets-popup button {
     width: 9.8rem;
     margin-bottom: 1rem;
 }
 
-.settings-popup button:hover {
+.option-buttons button:hover {
     padding: 10px 20px;
     scale: 1.01;
 }
 
-.settings-popup button:active {
+.option-buttons button:active {
     padding: 10px 20px;
     scale: 0.99;
 }
 
 .show {
+    transition: opacity 0.4s;
     visibility: visible;
     opacity: 1;
 }
