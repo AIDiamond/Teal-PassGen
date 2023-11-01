@@ -156,6 +156,25 @@ button:active {
     scale: 0.99;
 }
 
+.selection-buttons button {
+    padding: 10px 20px;
+    background-color: white;
+    border-color: aqua;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.selection-buttons button:hover {
+    padding: 10px 20px;
+    background-color: aqua;
+    scale: 1.01;
+}
+
+.selection-buttons button:active {
+    padding: 10px 20px;
+    scale: 0.99;
+}
+
 .presets button {
     width: 20rem;
 }

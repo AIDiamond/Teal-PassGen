@@ -136,11 +136,14 @@ function showPresetButtons() {
   if (presetsExist === null) {
     const presets = document.createElement('div');
     presets.id = "presets";
-    presets.classList.add('presets','option-buttons');
+    presets.classList.add('presets','selection-buttons');
     presets.innerHTML = `
-          <button id="presetOne" onclick="showPresetOne()">Preset 1</button>
-          <button id="presetTwo" onclick="showPresetTwo()">Preset 2</button>
-          <button id="presetThree" onclick="showPresetThree()">Preset 3</button>
+          <button id="presetOne" onclick="applyPreset()">Letters Uppercase</button>
+          <button id="presetTwo" onclick="applyPreset()">Letters Lowercase</button>
+          <button id="presetThree" onclick="applyPreset()">All Letters</button>
+          <button id="presetFour" onclick="applyPreset()">Numbers</button>
+          <button id="presetFive" onclick="applyPreset()">Letters + Numbers</button>
+          <button id="presetSix" onclick="applyPreset()">Letters + Numbers + Specials</button>
           `;
     presetsPopup.appendChild(presets);
     presetButtonsExist = true;
@@ -166,11 +169,14 @@ function showPrefillButtons() {
   if (prefillsExist === null) {
     const prefills = document.createElement('div');
     prefills.id = "prefills";
-    prefills.classList.add('prefills','option-buttons');
+    prefills.classList.add('prefills','selection-buttons');
     prefills.innerHTML = `
-          <button id="prefillOne" onclick="showPrefillOne()">Prefill 1</button>
-          <button id="prefillTwo" onclick="showPrefillTwo()">Prefill 2</button>
-          <button id="prefillThree" onclick="showPrefillThree()">Prefill 3</button>
+          <button id="prefillOne" onclick="copyPrefill()">abcdefghijklmnopqrstuvwxyz</button>
+          <button id="prefillTwo" onclick="copyPrefill()">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillThree" onclick="copyPrefill()">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillFour" onclick="copyPrefill()">0123456789</button>
+          <button id="prefillFive" onclick="copyPrefill()">!@#$%^&*()</button>
+          <button id="prefillSix" onclick="copyPrefill()">!@#$%^&*()_-+={}[]:;"'<>,.?/</button>
           `;
     presetsPopup.appendChild(prefills);
     prefillButtonsExist = true;
