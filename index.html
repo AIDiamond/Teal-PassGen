@@ -40,11 +40,13 @@
       </div>
       <div id="presets-popup" class="presets-popup">
         <div class="option-buttons">
-          <button>Presets</button>
-          <button>Prefills</button>
+          <button id="show-presets-button" onclick="showPresetButtons()">Presets</button>
+          <button id="show-prefills-button" onclick="showPrefillButtons()">Prefills</button>
         </div>
       </div>
-      <ul id="passwordList" style="list-style-type: none;"></ul>
+      <div id="password-container" class="password-container">
+        <ul id="passwordList" style="list-style-type: none;"></ul>
+      </div>
     </div>
     <script src="scripts.js"></script>
   </body>

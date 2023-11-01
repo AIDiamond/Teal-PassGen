@@ -57,6 +57,9 @@ function generateNewPasswords() {
     listItem.innerHTML = password;
     passwordList.appendChild(listItem);
   }
+
+  const passwordContainer = document.getElementById('password-container');
+  passwordContainer.classList.add('show');
 }
 
 function copyPasswords() {
@@ -105,20 +108,82 @@ function setColorMode() {
 window.addEventListener('load', setColorMode);
 
 function showSettings() {
-  const settingsPopups = document.getElementsByClassName("settings-popup");
+  const settingsPopups = document.getElementsByClassName('settings-popup');
   for (const settingsPopup of settingsPopups) {
-    settingsPopup.classList.toggle("show");
+    settingsPopup.classList.toggle('show');
   }
 }
 
 function showPresetOptions() {
-  const presetsPopups = document.getElementsByClassName("presets-popup");
+  const presetsPopups = document.getElementsByClassName('presets-popup');
   for (const presetsPopup of presetsPopups) {
-    presetsPopup.classList.toggle("show");
+    presetsPopup.classList.toggle('show');
   }
 }
 
-const enterButton = document.getElementById("generateButton");
+let presetButtonsExist = false;
+function showPresetButtons() {
+  const presetsPopup = document.getElementById('presets-popup');
+
+  if (prefillButtonsExist) {
+    const prefill = document.getElementById('prefills');
+    presetsPopup.removeChild(prefill);
+    prefillButtonsExist = false;
+  }
+
+  const presetsExist = document.getElementById('presets');
+
+  if (presetsExist === null) {
+    const presets = document.createElement('div');
+    presets.id = "presets";
+    presets.classList.add('presets','option-buttons');
+    presets.innerHTML = `
+          <button id="presetOne" onclick="showPresetOne()">Preset 1</button>
+          <button id="presetTwo" onclick="showPresetTwo()">Preset 2</button>
+          <button id="presetThree" onclick="showPresetThree()">Preset 3</button>
+          `;
+    presetsPopup.appendChild(presets);
+    presets.classList.add('show');
+    presetButtonsExist = true;
+  }
+  else {
+    presetsPopup.removeChild(presetsExist);
+    presetButtonsExist = false;
+  }
+}
+
+let prefillButtonsExist = false;
+function showPrefillButtons() {
+  const presetsPopup = document.getElementById('presets-popup');
+
+  if (presetButtonsExist) {
+    const presets = document.getElementById('presets');
+    presetsPopup.removeChild(presets);
+    presetButtonsExist = false;
+  }
+
+  const prefillsExist = document.getElementById('prefills');
+
+  if (prefillsExist === null) {
+    const prefills = document.createElement('div');
+    prefills.id = "prefills";
+    prefills.classList.add('prefills','option-buttons');
+    prefills.innerHTML = `
+          <button id="prefillOne" onclick="showPrefillOne()">Prefill 1</button>
+          <button id="prefillTwo" onclick="showPrefillTwo()">Prefill 2</button>
+          <button id="prefillThree" onclick="showPrefillThree()">Prefill 3</button>
+          `;
+    presetsPopup.appendChild(prefills);
+    prefills.classList.add('show');
+    prefillButtonsExist = true;
+  }
+  else {
+    presetsPopup.removeChild(prefillsExist);
+    prefillButtonsExist = false;
+  }
+}
+
+const enterButton = document.getElementById('generateButton');
 function handleEnterKeyPress(event) {
     if (event.key === "Enter") {
         enterButton.click();
