@@ -156,12 +156,6 @@ button:active {
     scale: 0.99;
 }
 
-.presets {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.4s, visibility 0.4s;
-}
-
 .presets button {
     width: 20rem;
 }

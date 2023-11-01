@@ -143,7 +143,6 @@ function showPresetButtons() {
           <button id="presetThree" onclick="showPresetThree()">Preset 3</button>
           `;
     presetsPopup.appendChild(presets);
-    presets.classList.add('show');
     presetButtonsExist = true;
   }
   else {
@@ -174,7 +173,6 @@ function showPrefillButtons() {
           <button id="prefillThree" onclick="showPrefillThree()">Prefill 3</button>
           `;
     presetsPopup.appendChild(prefills);
-    prefills.classList.add('show');
     prefillButtonsExist = true;
   }
   else {
