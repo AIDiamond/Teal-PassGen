@@ -133,12 +133,12 @@ function showPresetButtons() {
     presets.id = "presets";
     presets.classList.add('presets','selection-buttons');
     presets.innerHTML = `
-          <button id="presetOne" onclick="applyPreset()">Letters Uppercase</button>
-          <button id="presetTwo" onclick="applyPreset()">Letters Lowercase</button>
-          <button id="presetThree" onclick="applyPreset()">All Letters</button>
-          <button id="presetFour" onclick="applyPreset()">Numbers</button>
-          <button id="presetFive" onclick="applyPreset()">Letters + Numbers</button>
-          <button id="presetSix" onclick="applyPreset()">Letters + Numbers + Specials</button>
+          <button id="presetOne" onclick="applyPreset(1)" title="Example: ABCDEFGHIJ">Letters Uppercase</button>
+          <button id="presetTwo" onclick="applyPreset(2)" title="Example: abcdefghij">Letters Lowercase</button>
+          <button id="presetThree" onclick="applyPreset(3)" title="Example: AbcDeFGHIj">All Letters</button>
+          <button id="presetFour" onclick="applyPreset(4)" title="Example: 0123456789">Numbers</button>
+          <button id="presetFive" onclick="applyPreset(5)" title="Example: aBCde12345">Letters + Numbers</button>
+          <button id="presetSix" onclick="applyPreset(6)" title="Example: AbcD1234!@">Letters + Numbers + Specials</button>
           `;
     presetsPopup.appendChild(presets);
     presetButtonsExist = true;
@@ -167,12 +167,12 @@ function showPrefillButtons() {
     prefills.id = "prefills";
     prefills.classList.add('prefills','selection-buttons');
     prefills.innerHTML = `
-          <button id="prefillOne" onclick="copyPrefill(1)">abcdefghijklmnopqrstuvwxyz</button>
-          <button id="prefillTwo" onclick="copyPrefill(2)">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
-          <button id="prefillThree" onclick="copyPrefill(3)">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
-          <button id="prefillFour" onclick="copyPrefill(4)">0123456789</button>
-          <button id="prefillFive" onclick="copyPrefill(5)">!@#$%^&*()</button>
-          <button id="prefillSix" onclick="copyPrefill(6)">!@#$%^&*()_-+={}[]:;"'<>,.?/|\\</button>
+          <button id="prefillOne" onclick="copyPrefill(1)" title="Click to copy">abcdefghijklmnopqrstuvwxyz</button>
+          <button id="prefillTwo" onclick="copyPrefill(2)" title="Click to copy">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillThree" onclick="copyPrefill(3)" title="Click to copy">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillFour" onclick="copyPrefill(4)" title="Click to copy">0123456789</button>
+          <button id="prefillFive" onclick="copyPrefill(5)" title="Click to copy">!@#$%^&*()</button>
+          <button id="prefillSix" onclick="copyPrefill(6)" title="Click to copy">!@#$%^&*()_-+={}[]:;"'<>,.?/|\\</button>
           `;
     presetsPopup.appendChild(prefills);
     prefillButtonsExist = true;
@@ -184,7 +184,76 @@ function showPrefillButtons() {
 }
 
 //Function to apply a preset.
-function applyPreset() {}
+function applyPreset(presetNumber) {
+  const poolOne = document.getElementById('pool1');
+  const poolTwo = document.getElementById('pool2');
+  const poolThree = document.getElementById('pool3');
+  const numOne = document.getElementById('num1');
+  const numTwo = document.getElementById('num2');
+  const numThree = document.getElementById('num3');
+  switch (presetNumber) {
+    case 1:
+      {
+        poolOne.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        poolTwo.value = "";
+        poolThree.value = "";
+        numOne.value = "10";
+        numTwo.value = "0";
+        numThree.value = "0";
+        break;
+      }
+    case 2:
+      {
+        poolOne.value = "abcdefghijklmnopqrstuvwxyz";
+        poolTwo.value = "";
+        poolThree.value = "";
+        numOne.value = "10";
+        numTwo.value = "0";
+        numThree.value = "0";
+        break;
+      }
+    case 3:
+      {
+        poolOne.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        poolTwo.value = "";
+        poolThree.value = "";
+        numOne.value = "10";
+        numTwo.value = "0";
+        numThree.value = "0";
+        break;
+      }
+    case 4:
+      {
+        poolOne.value = "0123456789";
+        poolTwo.value = "";
+        poolThree.value = "";
+        numOne.value = "10";
+        numTwo.value = "0";
+        numThree.value = "0";
+        break;
+      }
+    case 5:
+      {
+        poolOne.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        poolTwo.value = "0123456789";
+        poolThree.value = "";
+        numOne.value = "5";
+        numTwo.value = "5";
+        numThree.value = "0";
+        break;
+      }
+    case 6:
+      {
+        poolOne.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        poolTwo.value = "0123456789";
+        poolThree.value = "!@#$%^&*()";
+        numOne.value = "4";
+        numTwo.value = "4";
+        numThree.value = "2";
+        break;
+      }
+  }
+}
 
 //Function to copy a prefill to the clipboard.
 function copyPrefill(prefillNumber) {
