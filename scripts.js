@@ -1,3 +1,4 @@
+//Function to generate a single password based on all the character pools and their number inputs.
 function generatePassword() {
   let password = "";
   let pools = [];
@@ -18,6 +19,7 @@ function generatePassword() {
   return password;
 }
 
+//Function to add a character pool.
 function addCharacterPool() {
   const settingsPopup = document.getElementById('settings-popup');
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
@@ -34,6 +36,7 @@ function addCharacterPool() {
   settingsPopup.appendChild(poolRow);
 }
 
+//Function to remove a character pool.
 function removeCharacterPool() {
   const settingsPopup = document.getElementById('settings-popup');
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length;
@@ -46,6 +49,7 @@ function removeCharacterPool() {
   else {}
 }
 
+//Function to generate and list however many passwords the user requested. Runs the generatePassword() per password requested.
 function generateNewPasswords() {
   let numPasswords = document.getElementById("numPasswords").value;
   let passwordList = document.getElementById("passwordList");
@@ -62,6 +66,7 @@ function generateNewPasswords() {
   passwordContainer.classList.add('show');
 }
 
+//Function to copy all the listed passwords to the clipboard.
 function copyPasswords() {
   let passwordList = document.getElementById("passwordList");
   let range = document.createRange();
@@ -72,20 +77,7 @@ function copyPasswords() {
   window.getSelection().removeAllRanges();
 }
 
-function generateNewPassword() {
-  document.getElementById("password").innerHTML = generatePassword();
-}
-
-function copyPassword() {
-  let passwordText = document.getElementById("password");
-  let range = document.createRange();
-  range.selectNode(passwordText);
-  window.getSelection().removeAllRanges();
-  window.getSelection().addRange(range);
-  document.execCommand("copy");
-  window.getSelection().removeAllRanges();
-}
-
+//Function to toggle dark mode.
 function toggleDarkMode() {
   const body = document.body;
   body.classList.toggle("dark-mode");
@@ -94,6 +86,7 @@ function toggleDarkMode() {
   localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
 }
 
+//Function and event listener to set the color mode at page load.
 function setColorMode() {
   const body = document.body;
   const darkModeEnabled = JSON.parse(localStorage.getItem('darkModeEnabled'));
@@ -104,9 +97,9 @@ function setColorMode() {
       body.classList.remove('dark-mode');
   }
 }
-
 window.addEventListener('load', setColorMode);
 
+//Function to show the settings popup. Currently not in use since they're set to always show.
 function showSettings() {
   const settingsPopups = document.getElementsByClassName('settings-popup');
   for (const settingsPopup of settingsPopups) {
@@ -114,6 +107,7 @@ function showSettings() {
   }
 }
 
+//Function to show the preset and prefill options.
 function showPresetOptions() {
   const presetsPopups = document.getElementsByClassName('presets-popup');
   for (const presetsPopup of presetsPopups) {
@@ -121,6 +115,7 @@ function showPresetOptions() {
   }
 }
 
+//Function to create and show the various presets.
 let presetButtonsExist = false;
 function showPresetButtons() {
   const presetsPopup = document.getElementById('presets-popup');
@@ -154,6 +149,7 @@ function showPresetButtons() {
   }
 }
 
+//Function to create and show the various prefills.
 let prefillButtonsExist = false;
 function showPrefillButtons() {
   const presetsPopup = document.getElementById('presets-popup');
@@ -171,12 +167,12 @@ function showPrefillButtons() {
     prefills.id = "prefills";
     prefills.classList.add('prefills','selection-buttons');
     prefills.innerHTML = `
-          <button id="prefillOne" onclick="copyPrefill()">abcdefghijklmnopqrstuvwxyz</button>
-          <button id="prefillTwo" onclick="copyPrefill()">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
-          <button id="prefillThree" onclick="copyPrefill()">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
-          <button id="prefillFour" onclick="copyPrefill()">0123456789</button>
-          <button id="prefillFive" onclick="copyPrefill()">!@#$%^&*()</button>
-          <button id="prefillSix" onclick="copyPrefill()">!@#$%^&*()_-+={}[]:;"'<>,.?/</button>
+          <button id="prefillOne" onclick="copyPrefill(1)">abcdefghijklmnopqrstuvwxyz</button>
+          <button id="prefillTwo" onclick="copyPrefill(2)">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillThree" onclick="copyPrefill(3)">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillFour" onclick="copyPrefill(4)">0123456789</button>
+          <button id="prefillFive" onclick="copyPrefill(5)">!@#$%^&*()</button>
+          <button id="prefillSix" onclick="copyPrefill(6)">!@#$%^&*()_-+={}[]:;"'<>,.?/|\\</button>
           `;
     presetsPopup.appendChild(prefills);
     prefillButtonsExist = true;
@@ -187,6 +183,34 @@ function showPrefillButtons() {
   }
 }
 
+//Function to apply a preset.
+function applyPreset() {}
+
+//Function to copy a prefill to the clipboard.
+function copyPrefill(prefillNumber) {
+  switch (prefillNumber) {
+    case 1:
+      navigator.clipboard.writeText('abcdefghijklmnopqrstuvwxyz');
+      break;
+    case 2:
+      navigator.clipboard.writeText('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+      break;
+    case 3:
+      navigator.clipboard.writeText('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+      break;
+    case 4:
+      navigator.clipboard.writeText('0123456789');
+      break;
+    case 5:
+      navigator.clipboard.writeText('!@#$%^&*()');
+      break;
+    case 6:
+      navigator.clipboard.writeText('!@#$%^&*()_-+={}[]:;"\'<>,.?/|\\');
+      break;
+  }
+}
+
+//Function and event listener for the enter key to click the generate button.
 const enterButton = document.getElementById('generateButton');
 function handleEnterKeyPress(event) {
     if (event.key === "Enter") {
