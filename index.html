@@ -9,7 +9,7 @@
   <body>
     <button id="dark-mode-button" onclick="toggleDarkMode()">🌓</button>
     <br>
-    <h1> Custom Password Generator</h1>
+    <h1>Custom Password Generator</h1>
     <label for="numPasswords">Number of passwords to generate:</label>
     <input type="number" id="numPasswords" name="numPasswords" value="1" min="1">
     <button id="generateButton" onclick="generateNewPasswords()">Generate Passwords</button>
@@ -18,8 +18,9 @@
       <!--Options menu-->
       <div id="settings-popup" class="settings-popup show">
         <div class="option-buttons">
-          <button id="add-pool-button" onclick="addCharacterPool()">Pool+</button>
-          <button id="remove-pool-button" onclick="removeCharacterPool()">Pool-</button>
+          <button id="add-pool-button" onclick="addCharacterPool()" title="Add a character pool">Pool+</button>
+          <button id="remove-pool-button" onclick="removeCharacterPool()" title="Remove the last character pool">Pool-</button>
+          <button id="presets-button" onclick="showPresetOptions()" title="Show preconfigured options">Presets</button>
         </div>
         <div class="pool-row">
           <label class="labels" for="pool1">Pool 1:</label>
@@ -37,7 +38,15 @@
           <input class="settings" type="number" name="num3" id="num3" value="2" min="0">
         </div>
       </div>
-      <ul id="passwordList" style="list-style-type: none;"></ul>
+      <div id="presets-popup" class="presets-popup">
+        <div class="option-buttons">
+          <button id="show-presets-button" onclick="showPresetButtons()">Presets</button>
+          <button id="show-prefills-button" onclick="showPrefillButtons()">Prefills</button>
+        </div>
+      </div>
+      <div id="password-container" class="password-container">
+        <ul id="passwordList" style="list-style-type: none;"></ul>
+      </div>
     </div>
     <script src="scripts.js"></script>
   </body>
