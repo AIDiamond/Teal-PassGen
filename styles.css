@@ -217,6 +217,11 @@ button:active {
     margin-right: 1rem;
 }
 
+.custom-presets {
+    width: 20rem;
+    margin-bottom: 1rem;
+}
+
 .show {
     visibility: visible;
     opacity: 1;

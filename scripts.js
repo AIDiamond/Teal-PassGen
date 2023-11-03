@@ -113,6 +113,8 @@ function showPresetOptions() {
   for (const presetsPopup of presetsPopups) {
     presetsPopup.classList.toggle('show');
   }
+  const customPresetsPopup = document.getElementById('custom-presets-popup');
+  customPresetsPopup.classList.remove('show');
 }
 
 //Function to create and show the various presets.
@@ -270,6 +272,7 @@ function createPreset() {
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
   const customPresetsPopup = document.getElementById('custom-presets-popup');
   const customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets').length + 1;
+  const customPresetsButtons = document.getElementById('customPresetsButtons');
 
   let pool = [];
   let num = [];
@@ -279,9 +282,13 @@ function createPreset() {
     num[i] = document.getElementById(`num${i}`).value;
   }
 
-  newPreset = document.createElement('button');
+  const newPreset = document.createElement('button');
   newPreset.id = `customPreset${customPresetsCount}`;
-  newPreset.classList.add('custom-presets','selection-buttons');
+  newPreset.classList.add('custom-presets');
+  newPreset.onclick = `applyCustomPreset(${customPresetsCount})`;
+  newPreset.innerHTML = "Custom Preset"
+
+  customPresetsButtons.appendChild(newPreset);
 }
 
 //Function to copy a prefill to the clipboard.

@@ -44,7 +44,12 @@
           <button id="show-prefills-button" onclick="showPrefillButtons()">Prefills</button>
         </div>
       </div>
-      <div id="custom-presets-popup" class="custom-presets-popup"></div>
+      <div id="custom-presets-popup" class="custom-presets-popup">
+        <div class="option-buttons">
+          <button id="createPresetButton" class="custom-presets" onclick="createPreset()">Create New Preset</button>
+        </div>
+        <div id="customPresetsButtons" class="selection-buttons"></div>
+      </div>
       <div id="password-container" class="password-container">
         <ul id="passwordList" style="list-style-type: none;"></ul>
       </div>
