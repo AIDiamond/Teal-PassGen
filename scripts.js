@@ -121,8 +121,8 @@ function showPresetButtons() {
   const presetsPopup = document.getElementById('presets-popup');
 
   if (prefillButtonsExist) {
-    const prefill = document.getElementById('prefills');
-    presetsPopup.removeChild(prefill);
+    const prefills = document.getElementById('prefills');
+    presetsPopup.removeChild(prefills);
     prefillButtonsExist = false;
   }
 
@@ -133,6 +133,7 @@ function showPresetButtons() {
     presets.id = "presets";
     presets.classList.add('presets','selection-buttons');
     presets.innerHTML = `
+          <button id="cutomPresets" onclick="showCustomPresets()">Custom Presets</button>
           <button id="presetOne" onclick="applyPreset(1)" title="Example: ABCDEFGHIJ">Letters Uppercase</button>
           <button id="presetTwo" onclick="applyPreset(2)" title="Example: abcdefghij">Letters Lowercase</button>
           <button id="presetThree" onclick="applyPreset(3)" title="Example: AbcDeFGHIj">All Letters</button>
@@ -253,6 +254,34 @@ function applyPreset(presetNumber) {
         break;
       }
   }
+}
+
+//Function to show custom presets.
+function showCustomPresets() {
+  const customPresetsPopups = document.getElementsByClassName('custom-presets-popup');
+  for (const customPresetsPopup of customPresetsPopups) {
+    customPresetsPopup.classList.toggle('show');
+  }
+}
+
+//Function to create a preset.
+function createPreset() {
+  const settingsPopup = document.getElementById('settings-popup');
+  const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
+  const customPresetsPopup = document.getElementById('custom-presets-popup');
+  const customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets').length + 1;
+
+  let pool = [];
+  let num = [];
+
+  for ( let i = 1; i < poolCount; i++ ) {
+    pool[i] = document.getElementById(`pool${i}`).value;
+    num[i] = document.getElementById(`num${i}`).value;
+  }
+
+  newPreset = document.createElement('button');
+  newPreset.id = `customPreset${customPresetsCount}`;
+  newPreset.classList.add('custom-presets','selection-buttons');
 }
 
 //Function to copy a prefill to the clipboard.

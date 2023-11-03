@@ -200,6 +200,23 @@ button:active {
     margin-right: 1rem;
 }
 
+.custom-presets-popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    text-align: left;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 30rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
 .show {
     visibility: visible;
     opacity: 1;
