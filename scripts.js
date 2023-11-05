@@ -273,11 +273,7 @@ function createPreset() {
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
   const customPresetsPopup = document.getElementById('custom-presets-popup');
 
-  let customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets');
-  if (customPresetsCount === undefined) {
-    customPresetsCount = 0;
-  }
-  customPresetsCount++
+  let customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets').length + 1;
 
   const customPresetsButtons = document.getElementById('customPresetsButtons');
 
@@ -301,7 +297,8 @@ function createPreset() {
 
 //Function to apply a custom preset.
 function applyCustomPreset(customPresetNumber) {
-  const poolCount = (Object.keys(customPresets['preset' + customPresetNumber]).length + 1);
+  const poolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length;
+  console.log("Custom preset number " + customPresetNumber);
 
   for ( let i = 1; i < poolCount; i++ ) {
     document.getElementById(`pool${i}`).value = customPresets[`preset${customPresetNumber}`][`pool${i}`];
