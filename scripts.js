@@ -266,29 +266,47 @@ function showCustomPresets() {
   }
 }
 
+let customPresets = {};
 //Function to create a preset.
 function createPreset() {
   const settingsPopup = document.getElementById('settings-popup');
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
   const customPresetsPopup = document.getElementById('custom-presets-popup');
-  const customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets').length + 1;
+
+  let customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets');
+  if (customPresetsCount === undefined) {
+    customPresetsCount = 0;
+  }
+  customPresetsCount++
+
   const customPresetsButtons = document.getElementById('customPresetsButtons');
 
-  let pool = [];
-  let num = [];
-
   for ( let i = 1; i < poolCount; i++ ) {
-    pool[i] = document.getElementById(`pool${i}`).value;
-    num[i] = document.getElementById(`num${i}`).value;
+    customPresets[`preset${customPresetsCount}`] = {};
+    customPresets[`preset${customPresetsCount}`][`pool${i}`] = document.getElementById(`pool${i}`).value;
+    customPresets[`preset${customPresetsCount}`][`num${i}`] = document.getElementById(`num${i}`).value;
   }
 
   const newPreset = document.createElement('button');
   newPreset.id = `customPreset${customPresetsCount}`;
   newPreset.classList.add('custom-presets');
-  newPreset.onclick = `applyCustomPreset(${customPresetsCount})`;
-  newPreset.innerHTML = "Custom Preset"
-
+  newPreset.onclick = (function(count) {
+    return function() {
+      applyCustomPreset(count);
+    };
+  })(customPresetsCount);
+  newPreset.innerHTML = "Custom Preset";
   customPresetsButtons.appendChild(newPreset);
+}
+
+//Function to apply a custom preset.
+function applyCustomPreset(customPresetNumber) {
+  const poolCount = (Object.keys(customPresets['preset' + customPresetNumber]).length + 1);
+
+  for ( let i = 1; i < poolCount; i++ ) {
+    document.getElementById(`pool${i}`).value = customPresets[`preset${customPresetNumber}`][`pool${i}`];
+    document.getElementById(`num${i}`).value = customPresets[`preset${customPresetNumber}`][`num${i}`];
+  }
 }
 
 //Function to copy a prefill to the clipboard.
