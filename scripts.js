@@ -272,13 +272,13 @@ function createPreset() {
   const settingsPopup = document.getElementById('settings-popup');
   const poolCount = settingsPopup.querySelectorAll('.pool-row').length + 1;
   const customPresetsPopup = document.getElementById('custom-presets-popup');
-
   let customPresetsCount = customPresetsPopup.querySelectorAll('.custom-presets').length + 1;
-
+  customPresets[`preset${customPresetsCount}`] = {};
   const customPresetsButtons = document.getElementById('customPresetsButtons');
 
   for ( let i = 1; i < poolCount; i++ ) {
-    customPresets[`preset${customPresetsCount}`] = {};
+    customPresets[`preset${customPresetsCount}`][`pool${i}`] = "";
+    customPresets[`preset${customPresetsCount}`][`num${i}`] = "";
     customPresets[`preset${customPresetsCount}`][`pool${i}`] = document.getElementById(`pool${i}`).value;
     customPresets[`preset${customPresetsCount}`][`num${i}`] = document.getElementById(`num${i}`).value;
   }
@@ -297,10 +297,9 @@ function createPreset() {
 
 //Function to apply a custom preset.
 function applyCustomPreset(customPresetNumber) {
-  const poolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length;
-  console.log("Custom preset number " + customPresetNumber);
+  const poolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length / 2;
 
-  for ( let i = 1; i < poolCount; i++ ) {
+  for ( let i = 1; i <= poolCount; i++ ) {
     document.getElementById(`pool${i}`).value = customPresets[`preset${customPresetNumber}`][`pool${i}`];
     document.getElementById(`num${i}`).value = customPresets[`preset${customPresetNumber}`][`num${i}`];
   }
