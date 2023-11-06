@@ -291,7 +291,7 @@ function createPreset() {
       applyCustomPreset(count);
     };
   })(customPresetsCount);
-  newPreset.innerHTML = "Custom Preset";
+  newPreset.innerHTML = "Custom Preset" + customPresetsCount;
   customPresetsButtons.appendChild(newPreset);
 }
 
