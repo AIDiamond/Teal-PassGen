@@ -188,6 +188,12 @@ function showPrefillButtons() {
 
 //Function to apply a preset.
 function applyPreset(presetNumber) {
+  const settingsPopup = document.getElementById('settings-popup');
+  let currentPoolCount = settingsPopup.querySelectorAll('.pool-row').length;
+  while (currentPoolCount > 3) {
+    removeCharacterPool();
+    currentPoolCount--;
+  }
   const poolOne = document.getElementById('pool1');
   const poolTwo = document.getElementById('pool2');
   const poolThree = document.getElementById('pool3');
@@ -291,15 +297,22 @@ function createPreset() {
       applyCustomPreset(count);
     };
   })(customPresetsCount);
-  newPreset.innerHTML = "Custom Preset" + customPresetsCount;
+  newPreset.innerHTML = "Custom Preset " + customPresetsCount;
   customPresetsButtons.appendChild(newPreset);
 }
 
 //Function to apply a custom preset.
 function applyCustomPreset(customPresetNumber) {
-  const poolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length / 2;
+  const customPoolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length / 2;
+  const settingsPopup = document.getElementById('settings-popup');
+  let currentPoolCount = settingsPopup.querySelectorAll('.pool-row').length;
 
-  for ( let i = 1; i <= poolCount; i++ ) {
+  while (currentPoolCount < customPoolCount) {
+    addCharacterPool();
+    currentPoolCount++;
+  }
+
+  for ( let i = 1; i <= customPoolCount; i++ ) {
     document.getElementById(`pool${i}`).value = customPresets[`preset${customPresetNumber}`][`pool${i}`];
     document.getElementById(`num${i}`).value = customPresets[`preset${customPresetNumber}`][`num${i}`];
   }
