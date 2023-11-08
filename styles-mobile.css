@@ -1,0 +1,241 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: medium;
+}
+
+input[type="number"] {
+    width: 8%;
+    padding: 6px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-radius 0.1s;
+}
+
+input[type="number"]:hover {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+input[type="number"]:focus {
+    border-radius: 6px;
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-radius 0.1s;
+}
+
+input[type="text"]:hover {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+input[type="text"]:focus {
+    border-radius: 6px;
+}
+
+button {
+    background-color: aqua;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 5;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: aquamarine;
+    padding: 12px 20px;
+}
+
+button:active {
+    padding: 8px 20px;
+}
+
+.dark-mode {
+    transition: background-color 0.4s, color 0.4s;
+    background-color: black;
+    color: white;
+}
+
+#dark-mode-button {
+    float: right;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 40px;
+    padding: 0px;
+    margin: 0;
+    border-radius: 100px;
+}
+
+#dark-mode-button:hover {
+    scale: 1.01;
+}
+
+#dark-mode-button:active {
+    scale: 0.99;
+}
+
+.main-flexbox {
+    display: flex;
+}
+
+.settings-popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    text-align: left;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 40rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
+.settings-popup input[type="number"] {
+    width: 10%;
+    padding: 2px;
+}
+
+.settings-popup label {
+    padding: 2px;
+    color: white;
+}
+
+.settings-popup button {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+.presets-popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    text-align: left;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 40rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
+.presets-popup button {
+    width: 9rem;
+    margin-bottom: 1rem;
+}
+
+.option-buttons {
+    text-align: center;
+}
+
+.option-buttons button:hover {
+    padding: 10px 20px;
+    scale: 1.01;
+}
+
+.option-buttons button:active {
+    padding: 10px 20px;
+    scale: 0.99;
+}
+
+.selection-buttons {
+    text-align: center;
+}
+
+.selection-buttons button {
+    padding: 10px 20px;
+    background-color: white;
+    border-color: aqua;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.selection-buttons button:hover {
+    padding: 10px 20px;
+    background-color: aqua;
+    scale: 1.01;
+}
+
+.selection-buttons button:active {
+    padding: 10px 20px;
+    scale: 0.99;
+}
+
+.presets button {
+    width: 18rem;
+}
+
+.prefills button {
+    width: 18rem;
+}
+
+.password-container {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    padding: 1rem;
+    width: 20rem;
+    text-align: center;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 40rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
+.custom-presets-popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    text-align: left;
+    border-radius: 10px;
+    transition: opacity 0.4s, visibility 0.4s;
+    height: 40rem;
+    overflow-y: auto;
+    margin-right: 1rem;
+}
+
+.custom-presets {
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
+#createPresetButton {
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
