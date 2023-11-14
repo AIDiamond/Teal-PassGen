@@ -342,6 +342,10 @@ function applyCustomPreset(customPresetNumber) {
     addCharacterPool();
     currentPoolCount++;
   }
+  while (currentPoolCount > customPoolCount) {
+    removeCharacterPool();
+    currentPoolCount--;
+  }
 
   while (currentPoolCount > customPoolCount) {
     removeCharacterPool();
