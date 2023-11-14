@@ -273,6 +273,34 @@ function showCustomPresets() {
 }
 
 let customPresets = {};
+window.addEventListener('load', loadSavedPresets);
+
+//Function to load custom presets made in previous sessions.
+function loadSavedPresets() {
+  if (localStorage.getItem('savedPresets') === null) {
+    console.log("There are no custom presets in local storage.")
+  }
+  else {
+    customPresets = JSON.parse(localStorage.getItem('savedPresets'));
+
+    const customPresetCount = Object.keys(customPresets).length;
+    const customPresetsButtons = document.getElementById('customPresetsButtons');
+
+    for (let i = 1; i <= customPresetCount; i++) {
+      const newPreset = document.createElement('button');
+      newPreset.id = `customPreset${i}`;
+      newPreset.classList.add('custom-presets');
+      newPreset.onclick = (function(count) {
+        return function() {
+          applyCustomPreset(count);
+        };
+      })(i);
+      newPreset.innerHTML = "Custom Preset " + i;
+      customPresetsButtons.appendChild(newPreset);
+    }
+  }
+}
+
 //Function to create a preset.
 function createPreset() {
   const settingsPopup = document.getElementById('settings-popup');
@@ -299,6 +327,9 @@ function createPreset() {
   })(customPresetsCount);
   newPreset.innerHTML = "Custom Preset " + customPresetsCount;
   customPresetsButtons.appendChild(newPreset);
+
+  let savedPresets = JSON.stringify(customPresets);
+  localStorage.setItem('savedPresets', savedPresets);
 }
 
 //Function to apply a custom preset.
