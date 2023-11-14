@@ -347,11 +347,6 @@ function applyCustomPreset(customPresetNumber) {
     currentPoolCount--;
   }
 
-  while (currentPoolCount > customPoolCount) {
-    removeCharacterPool();
-    currentPoolCount--;
-  }
-
   for ( let i = 1; i <= customPoolCount; i++ ) {
     document.getElementById(`pool${i}`).value = customPresets[`preset${customPresetNumber}`][`pool${i}`];
     document.getElementById(`num${i}`).value = customPresets[`preset${customPresetNumber}`][`num${i}`];
