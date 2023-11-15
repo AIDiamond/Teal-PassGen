@@ -111,7 +111,7 @@ button:active {
     height: 40rem;
     overflow-y: auto;
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .settings-popup input[type="number"] {
@@ -144,7 +144,7 @@ button:active {
     height: 40rem;
     overflow-y: auto;
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .presets-popup button {
@@ -209,7 +209,7 @@ button:active {
     height: 40rem;
     overflow-y: auto;
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .custom-presets-popup {
@@ -227,7 +227,7 @@ button:active {
     height: 40rem;
     overflow-y: auto;
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .custom-presets {
