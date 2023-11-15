@@ -170,9 +170,9 @@ function showPrefillButtons() {
     prefills.id = "prefills";
     prefills.classList.add('prefills','selection-buttons');
     prefills.innerHTML = `
-          <button id="prefillOne" onclick="copyPrefill(1)" title="Click to copy">abcdefghijklmnopqrstuvwxyz</button>
-          <button id="prefillTwo" onclick="copyPrefill(2)" title="Click to copy">ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
-          <button id="prefillThree" onclick="copyPrefill(3)" title="Click to copy">abcdefghijklmnopqrstuvwxyz&#013;ABCDEFGHIJKLMNOPQRSTUVWXYZ</button>
+          <button id="prefillOne" onclick="copyPrefill(1)" title="Click to copy">abcde...</button>
+          <button id="prefillTwo" onclick="copyPrefill(2)" title="Click to copy">ABCDE...</button>
+          <button id="prefillThree" onclick="copyPrefill(3)" title="Click to copy">abcde...&#013;ABCDE...</button>
           <button id="prefillFour" onclick="copyPrefill(4)" title="Click to copy">0123456789</button>
           <button id="prefillFive" onclick="copyPrefill(5)" title="Click to copy">!@#$%^&*()</button>
           <button id="prefillSix" onclick="copyPrefill(6)" title="Click to copy">!@#$%^&*()_-+={}[]:;"'<>,.?/|\\</button>

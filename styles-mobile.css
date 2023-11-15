@@ -190,11 +190,11 @@ button:active {
 }
 
 .presets button {
-    width: 18rem;
+    width: 9rem;
 }
 
 .prefills button {
-    width: 18rem;
+    width: 9rem;
 }
 
 .password-container {
@@ -231,12 +231,12 @@ button:active {
 }
 
 .custom-presets {
-    width: 18rem;
+    width: 9rem;
     margin-bottom: 1rem;
 }
 
 #createPresetButton {
-    width: 18rem;
+    width: 9rem;
     margin-bottom: 1rem;
 }
 
