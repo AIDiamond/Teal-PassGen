@@ -301,6 +301,31 @@ function loadSavedPresets() {
   }
 }
 
+//Function to create the name form.
+function createNameForm() {
+  const formExists = document.querySelectorAll('.name-form').length;
+  if (formExists < 1) {
+    const container = document.getElementById('createPresetContainer');
+
+    const nameForm = document.createElement('div');
+    nameForm.innerHTML = `<input type="text" id="customPresetName" placeholder="Enter name for new preset"></input>
+                          <button onclick="deleteNameForm()">Cancel</button>
+                          <button onclick="createPreset()">Confirm</button>
+                          `;
+    nameForm.id = "nameForm";
+    nameForm.classList.add('name-form');
+    container.appendChild(nameForm);
+  }
+  else {}
+}
+
+//Function to delete the name form.
+function deleteNameForm() {
+  const container = document.getElementById('createPresetContainer');
+  const nameForm = document.getElementById('nameForm');
+  container.removeChild(nameForm);
+}
+
 //Function to create a preset.
 function createPreset() {
   const settingsPopup = document.getElementById('settings-popup');
@@ -317,6 +342,8 @@ function createPreset() {
     customPresets[`preset${customPresetsCount}`][`num${i}`] = document.getElementById(`num${i}`).value;
   }
 
+  const newPresetName = document.getElementById('customPresetName').value;
+  deleteNameForm();
   const newPreset = document.createElement('button');
   newPreset.id = `customPreset${customPresetsCount}`;
   newPreset.classList.add('custom-presets');
@@ -325,7 +352,7 @@ function createPreset() {
       applyCustomPreset(count);
     };
   })(customPresetsCount);
-  newPreset.innerHTML = "Custom Preset " + customPresetsCount;
+  newPreset.innerHTML = newPresetName;
   customPresetsButtons.appendChild(newPreset);
 
   let savedPresets = JSON.stringify(customPresets);
