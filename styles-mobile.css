@@ -108,7 +108,7 @@ button:active {
     text-align: left;
     border-radius: 10px;
     transition: opacity 0.4s, visibility 0.4s;
-    height: 40rem;
+    height: 17rem;
     overflow-y: auto;
     margin-right: 1rem;
     margin-top: 1rem;
@@ -141,7 +141,7 @@ button:active {
     text-align: left;
     border-radius: 10px;
     transition: opacity 0.4s, visibility 0.4s;
-    height: 40rem;
+    height: 17rem;
     overflow-y: auto;
     margin-right: 1rem;
     margin-top: 1rem;
@@ -206,7 +206,7 @@ button:active {
     text-align: center;
     border-radius: 10px;
     transition: opacity 0.4s, visibility 0.4s;
-    height: 40rem;
+    height: 30rem;
     overflow-y: auto;
     margin-right: 1rem;
     margin-top: 1rem;
@@ -224,7 +224,7 @@ button:active {
     text-align: left;
     border-radius: 10px;
     transition: opacity 0.4s, visibility 0.4s;
-    height: 40rem;
+    height: 10rem;
     overflow-y: auto;
     margin-right: 1rem;
     margin-top: 1rem;
