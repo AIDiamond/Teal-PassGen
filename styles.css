@@ -49,6 +49,23 @@ input[type="text"]:focus {
     border-radius: 6px;
 }
 
+select {
+    width: 60%;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-radius 0.1s;
+}
+
+select:hover {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+select:focus {
+    border-radius: 6px;
+}
+
 button {
     background-color: aqua;
     color: black;
@@ -244,6 +261,11 @@ button:active {
     margin-bottom: 1rem;
 }
 
+#deletePresetButton {
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
 .show {
     visibility: visible;
     opacity: 1;
@@ -264,6 +286,25 @@ button:active {
 }
 
 .name-form button {
+    width: 9rem;
+    font-size: smaller;
+}
+
+.select-form {
+    background-color: gray;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    height: 5rem;
+    padding-top: 6px;
+}
+
+.select-form select {
+    width: 18rem;
+    margin-bottom: 1rem;
+    height: 1rem;
+}
+
+.select-form button {
     width: 9rem;
     font-size: smaller;
 }

@@ -361,6 +361,50 @@ function createPreset() {
   localStorage.setItem('savedPresets', savedPresets);
 }
 
+function createSelectForm() {
+  const formExists = document.querySelectorAll('.select-form').length;
+  if (formExists < 1) {
+    const container = document.getElementById('deletePresetContainer');
+
+    const selectForm = document.createElement('div');
+    selectForm.innerHTML = `<select id="deletePresetName"><option value="" disabled selected>Select preset to delete</option></select>
+                          <button onclick="deleteSelectForm()">Cancel</button>
+                          <button onclick="deletePreset()">Confirm</button>
+                          `;
+    selectForm.id = "selectForm";
+    selectForm.classList.add('select-form');
+    container.appendChild(selectForm);
+
+    let currentCustomPresets = document.querySelectorAll('.custom-presets');
+    const selectElement = document.getElementById('deletePresetName');
+
+    let index = 1;
+    for (let preset of currentCustomPresets) {
+      // Extract the name of the element
+      let presetName = preset.textContent;
+
+      // Create a new <option> element
+      let option = document.createElement('option');
+
+      // Set the display text of the <option> to the name of the preset
+      option.textContent = presetName;
+
+      // Set the value of the <option> to a sequential number starting from 1
+      option.value = index++;
+
+      // Append the <option> to the <select> element
+      selectElement.appendChild(option);
+    }
+  }
+  else {}
+}
+
+function deleteSelectForm() {
+  const container = document.getElementById('deletePresetContainer');
+  const selectForm = document.getElementById('selectForm');
+  container.removeChild(selectForm);
+}
+
 //Function to apply a custom preset.
 function applyCustomPreset(customPresetNumber) {
   const customPoolCount = Object.keys(customPresets[`preset${customPresetNumber}`]).length / 2;
