@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Primary (Teal) */
-    --theme-default: #008080;
+    --theme-default: #030712;
     --theme-50: #e6f7f7;
     --theme-100: #cceeee;
     --theme-200: #99dddd;
@@ -47,6 +47,10 @@
     --secondary-950: #222200;
   }
 
+  html {
+    font-family: 'Varela Round', system-ui, sans-serif;
+  }
+  
   body {
     @apply antialiased;
   }
