@@ -49,6 +49,7 @@ const SortablePoolItem: React.FC<PoolItemProps> = ({ pool, index, onUpdate, onRe
         onChange={(e) => onUpdate(index, 'characters', e.target.value)}
         className="flex-1 p-2 border rounded-md dark:bg-theme-800 dark:border-theme-700 focus:ring-2 focus:ring-accent dark:focus:ring-accent/70"
         placeholder="Enter characters..."
+        spellCheck={false}
       />
       <input
         type="number"
